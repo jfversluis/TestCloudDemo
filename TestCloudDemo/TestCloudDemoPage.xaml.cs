@@ -11,14 +11,14 @@ namespace TestCloudDemo
 
         void Succeed_Clicked (object sender, System.EventArgs e)
         {
-            ResultLabel.Text = "Hooray";
+            ResultLabel.Text = "Hooray!";
             ResultLabel.TextColor = Color.Green;
         }
 
         void Failed_Clicked (object sender, System.EventArgs e)
         {
             ResultLabel.Text = "Whoops, that is embarrassing";
-            ResultLabel.TextColor = Color.Green;
+            ResultLabel.TextColor = Color.Red;
         }
     }
 }

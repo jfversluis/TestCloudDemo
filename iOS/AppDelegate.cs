@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace TestCloudDemo.iOS
 {
@@ -14,9 +15,15 @@ namespace TestCloudDemo.iOS
         {
             global::Xamarin.Forms.Forms.Init ();
 
+            Forms.ViewInitialized += (object sender, ViewInitializedEventArgs e) => {
+                if (!string.IsNullOrWhiteSpace (e.View.AutomationId)) {
+                    e.NativeView.AccessibilityIdentifier = e.View.AutomationId;
+                }
+            };
+
             // Code for starting up the Xamarin Test Cloud Agent
 #if ENABLE_TEST_CLOUD
-            Xamarin.Calabash.Start();
+            Xamarin.Calabash.Start ();
 #endif
 
             LoadApplication (new App ());
